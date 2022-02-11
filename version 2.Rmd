@@ -1,0 +1,544 @@
+---
+title: "466 version 2"
+output: pdf_document
+---
+
+```{r, echo = FALSE}
+bond_data = read.csv("apm466 a1 data.csv")
+selected_bond = bond_data[c(36,20,17,21,22,6,7,9,10,12),]
+selected_bond$dirty_jan_10 = selected_bond$price.jan.10
+selected_bond$dirty_jan_11 = selected_bond$price.jan.11
+selected_bond$dirty_jan_12 = selected_bond$price.jan.12
+selected_bond$dirty_jan_13 = selected_bond$price.jan.13
+selected_bond$dirty_jan_14 = selected_bond$price.jan.14
+selected_bond$dirty_jan_17 = selected_bond$price.jan.17
+selected_bond$dirty_jan_18 = selected_bond$price.jan.18
+selected_bond$dirty_jan_19 = selected_bond$price.jan.19
+selected_bond$dirty_jan_20 = selected_bond$price.jan.20
+selected_bond$dirty_jan_21 = selected_bond$price.jan.21
+```
+
+
+```{r, echo = FALSE}
+#dirty price for the 1st bond
+selected_bond$dirty_jan_10[1] = selected_bond$price.jan.10[1] + 41/365*0.0275
+selected_bond$dirty_jan_11[1] = selected_bond$price.jan.11[1] + 42/365*0.0275
+selected_bond$dirty_jan_12[1] = selected_bond$price.jan.12[1] + 43/365*0.0275
+selected_bond$dirty_jan_13[1] = selected_bond$price.jan.13[1] + 44/365*0.0275
+selected_bond$dirty_jan_14[1] = selected_bond$price.jan.14[1] + 45/365*0.0275
+selected_bond$dirty_jan_17[1] = selected_bond$price.jan.17[1] + 48/365*0.0275
+selected_bond$dirty_jan_18[1] = selected_bond$price.jan.18[1] + 49/365*0.0275
+selected_bond$dirty_jan_19[1] = selected_bond$price.jan.19[1] + 50/365*0.0275
+selected_bond$dirty_jan_20[1] = selected_bond$price.jan.20[1] + 51/365*0.0275
+selected_bond$dirty_jan_21[1] = selected_bond$price.jan.21[1] + 52/365*0.0275
+# selected_bond$dirty_jan_10[1] = selected_bond$price.jan.10[1] + 132/365*0.005
+# selected_bond$dirty_jan_11[1] = selected_bond$price.jan.11[1] + 133/365*0.005
+# selected_bond$dirty_jan_12[1] = selected_bond$price.jan.12[1] + 134/365*0.005
+# selected_bond$dirty_jan_13[1] = selected_bond$price.jan.13[1] + 135/365*0.005
+# selected_bond$dirty_jan_14[1] = selected_bond$price.jan.14[1] + 136/365*0.005
+# selected_bond$dirty_jan_17[1] = selected_bond$price.jan.17[1] + 139/365*0.005
+# selected_bond$dirty_jan_18[1] = selected_bond$price.jan.18[1] + 140/365*0.005
+# selected_bond$dirty_jan_19[1] = selected_bond$price.jan.19[1] + 141/365*0.005
+# selected_bond$dirty_jan_20[1] = selected_bond$price.jan.20[1] + 142/365*0.005
+# selected_bond$dirty_jan_21[1] = selected_bond$price.jan.21[1] + 143/365*0.005
+```
+
+```{r, echo = FALSE}
+#dirty price for the 2nd bond
+selected_bond$dirty_jan_10[2] = selected_bond$price.jan.10[2] + 132/365*0.0175
+selected_bond$dirty_jan_11[2] = selected_bond$price.jan.11[2] + 133/365*0.0175
+selected_bond$dirty_jan_12[2] = selected_bond$price.jan.12[2] + 134/365*0.0175
+selected_bond$dirty_jan_13[2] = selected_bond$price.jan.13[2] + 135/365*0.0175
+selected_bond$dirty_jan_14[2] = selected_bond$price.jan.14[2] + 136/365*0.0175
+selected_bond$dirty_jan_17[2] = selected_bond$price.jan.17[2] + 139/365*0.0175
+selected_bond$dirty_jan_18[2] = selected_bond$price.jan.18[2] + 140/365*0.0175
+selected_bond$dirty_jan_19[2] = selected_bond$price.jan.19[2] + 141/365*0.0175
+selected_bond$dirty_jan_20[2] = selected_bond$price.jan.20[2] + 142/365*0.0175
+selected_bond$dirty_jan_21[2] = selected_bond$price.jan.21[2] + 143/365*0.0175
+```
+
+```{r, echo = FALSE}
+#dirty price for the 3rd bond
+selected_bond$dirty_jan_10[3] = selected_bond$price.jan.10[3] + 41/365*0.015
+selected_bond$dirty_jan_11[3] = selected_bond$price.jan.11[3] + 42/365*0.015
+selected_bond$dirty_jan_12[3] = selected_bond$price.jan.12[3] + 43/365*0.015
+selected_bond$dirty_jan_13[3] = selected_bond$price.jan.13[3] + 44/365*0.015
+selected_bond$dirty_jan_14[3] = selected_bond$price.jan.14[3] + 45/365*0.015
+selected_bond$dirty_jan_17[3] = selected_bond$price.jan.17[3] + 48/365*0.015
+selected_bond$dirty_jan_18[3] = selected_bond$price.jan.18[3] + 49/365*0.015
+selected_bond$dirty_jan_19[3] = selected_bond$price.jan.19[3] + 50/365*0.015
+selected_bond$dirty_jan_20[3] = selected_bond$price.jan.20[3] + 51/365*0.015
+selected_bond$dirty_jan_21[3] = selected_bond$price.jan.21[3] + 52/365*0.015
+```
+
+```{r, echo = FALSE}
+#dirty price for the 5th bond
+selected_bond$dirty_jan_10[4] = selected_bond$price.jan.10[4] + 132/365*0.0225
+selected_bond$dirty_jan_11[4] = selected_bond$price.jan.11[4] + 133/365*0.0225
+selected_bond$dirty_jan_12[4] = selected_bond$price.jan.12[4] + 134/365*0.0225
+selected_bond$dirty_jan_13[4] = selected_bond$price.jan.13[4] + 135/365*0.0225
+selected_bond$dirty_jan_14[4] = selected_bond$price.jan.14[4] + 136/365*0.0225
+selected_bond$dirty_jan_17[4] = selected_bond$price.jan.17[4] + 139/365*0.0225
+selected_bond$dirty_jan_18[4] = selected_bond$price.jan.18[4] + 140/365*0.0225
+selected_bond$dirty_jan_19[4] = selected_bond$price.jan.19[4] + 141/365*0.0225
+selected_bond$dirty_jan_20[4] = selected_bond$price.jan.20[4] + 142/365*0.0225
+selected_bond$dirty_jan_21[4] = selected_bond$price.jan.21[4] + 143/365*0.0225
+```
+
+
+```{r, echo = FALSE}
+#dirty price for the 5th bond
+selected_bond$dirty_jan_10[5] = selected_bond$price.jan.10[5] + 132/365*0.015
+selected_bond$dirty_jan_11[5] = selected_bond$price.jan.11[5] + 133/365*0.015
+selected_bond$dirty_jan_12[5] = selected_bond$price.jan.12[5] + 134/365*0.015
+selected_bond$dirty_jan_13[5] = selected_bond$price.jan.13[5] + 135/365*0.015
+selected_bond$dirty_jan_14[5] = selected_bond$price.jan.14[5] + 136/365*0.015
+selected_bond$dirty_jan_17[5] = selected_bond$price.jan.17[5] + 139/365*0.015
+selected_bond$dirty_jan_18[5] = selected_bond$price.jan.18[5] + 140/365*0.015
+selected_bond$dirty_jan_19[5] = selected_bond$price.jan.19[5] + 141/365*0.015
+selected_bond$dirty_jan_20[5] = selected_bond$price.jan.20[5] + 142/365*0.015
+selected_bond$dirty_jan_21[5] = selected_bond$price.jan.21[5] + 143/365*0.015
+```
+
+```{r, echo = FALSE}
+#dirty price for the 6th bond
+selected_bond$dirty_jan_10[6] = selected_bond$price.jan.10[6] + 132/365*0.0125
+selected_bond$dirty_jan_11[6] = selected_bond$price.jan.11[6] + 133/365*0.0125
+selected_bond$dirty_jan_12[6] = selected_bond$price.jan.12[6] + 134/365*0.0125
+selected_bond$dirty_jan_13[6] = selected_bond$price.jan.13[6] + 135/365*0.0125
+selected_bond$dirty_jan_14[6] = selected_bond$price.jan.14[6] + 136/365*0.0125
+selected_bond$dirty_jan_17[6] = selected_bond$price.jan.17[6] + 139/365*0.0125
+selected_bond$dirty_jan_18[6] = selected_bond$price.jan.18[6] + 140/365*0.0125
+selected_bond$dirty_jan_19[6] = selected_bond$price.jan.19[6] + 141/365*0.0125
+selected_bond$dirty_jan_20[6] = selected_bond$price.jan.20[6] + 142/365*0.0125
+selected_bond$dirty_jan_21[6] = selected_bond$price.jan.21[6] + 143/365*0.0125
+```
+
+```{r, echo = FALSE}
+#dirty price for the 7th bond
+selected_bond$dirty_jan_10[7] = selected_bond$price.jan.10[7] + 132/365*0.005
+selected_bond$dirty_jan_11[7] = selected_bond$price.jan.11[7] + 133/365*0.005
+selected_bond$dirty_jan_12[7] = selected_bond$price.jan.12[7] + 134/365*0.005
+selected_bond$dirty_jan_13[7] = selected_bond$price.jan.13[7] + 135/365*0.005
+selected_bond$dirty_jan_14[7] = selected_bond$price.jan.14[7] + 136/365*0.005
+selected_bond$dirty_jan_17[7] = selected_bond$price.jan.17[7] + 139/365*0.005
+selected_bond$dirty_jan_18[7] = selected_bond$price.jan.18[7] + 140/365*0.005
+selected_bond$dirty_jan_19[7] = selected_bond$price.jan.19[7] + 141/365*0.005
+selected_bond$dirty_jan_20[7] = selected_bond$price.jan.20[7] + 142/365*0.005
+selected_bond$dirty_jan_21[7] = selected_bond$price.jan.21[7] + 143/365*0.005
+```
+
+```{r, echo = FALSE}
+#dirty price for the 8th bond
+selected_bond$dirty_jan_10[8] = selected_bond$price.jan.10[8] + 132/365*0.0025
+selected_bond$dirty_jan_11[8] = selected_bond$price.jan.11[8] + 133/365*0.0025
+selected_bond$dirty_jan_12[8] = selected_bond$price.jan.12[8] + 134/365*0.0025
+selected_bond$dirty_jan_13[8] = selected_bond$price.jan.13[8] + 135/365*0.0025
+selected_bond$dirty_jan_14[8] = selected_bond$price.jan.14[8] + 136/365*0.0025
+selected_bond$dirty_jan_17[8] = selected_bond$price.jan.17[8] + 139/365*0.0025
+selected_bond$dirty_jan_18[8] = selected_bond$price.jan.18[8] + 140/365*0.0025
+selected_bond$dirty_jan_19[8] = selected_bond$price.jan.19[8] + 141/365*0.0025
+selected_bond$dirty_jan_20[8] = selected_bond$price.jan.20[8] + 142/365*0.0025
+selected_bond$dirty_jan_21[8] = selected_bond$price.jan.21[8] + 143/365*0.0025
+```
+
+```{r, echo = FALSE}
+#dirty price for the 9th bond
+selected_bond$dirty_jan_10[9] = selected_bond$price.jan.10[9] + 132/365*0.01
+selected_bond$dirty_jan_11[9] = selected_bond$price.jan.11[9] + 133/365*0.01
+selected_bond$dirty_jan_12[9] = selected_bond$price.jan.12[9] + 134/365*0.01
+selected_bond$dirty_jan_13[9] = selected_bond$price.jan.13[9] + 135/365*0.01
+selected_bond$dirty_jan_14[9] = selected_bond$price.jan.14[9] + 136/365*0.01
+selected_bond$dirty_jan_17[9] = selected_bond$price.jan.17[9] + 139/365*0.01
+selected_bond$dirty_jan_18[9] = selected_bond$price.jan.18[9] + 140/365*0.01
+selected_bond$dirty_jan_19[9] = selected_bond$price.jan.19[9] + 141/365*0.01
+selected_bond$dirty_jan_20[9] = selected_bond$price.jan.20[9] + 142/365*0.01
+selected_bond$dirty_jan_21[9] = selected_bond$price.jan.21[9] + 143/365*0.01
+```
+
+```{r, echo = FALSE}
+#dirty price for the 10th bond
+selected_bond$dirty_jan_10[10] = selected_bond$price.jan.10[10] + 132/365*0.0125
+selected_bond$dirty_jan_11[10] = selected_bond$price.jan.11[10] + 133/365*0.0125
+selected_bond$dirty_jan_12[10] = selected_bond$price.jan.12[10] + 134/365*0.0125
+selected_bond$dirty_jan_13[10] = selected_bond$price.jan.13[10] + 135/365*0.0125
+selected_bond$dirty_jan_14[10] = selected_bond$price.jan.14[10] + 136/365*0.0125
+selected_bond$dirty_jan_17[10] = selected_bond$price.jan.17[10] + 139/365*0.0125
+selected_bond$dirty_jan_18[10] = selected_bond$price.jan.18[10] + 140/365*0.0125
+selected_bond$dirty_jan_19[10] = selected_bond$price.jan.19[10] + 141/365*0.0125
+selected_bond$dirty_jan_20[10] = selected_bond$price.jan.20[10] + 142/365*0.0125
+selected_bond$dirty_jan_21[10] = selected_bond$price.jan.21[10] + 143/365*0.0125
+```
+
+```{r, echo = FALSE}
+# change the data type of simplify code
+mature_date$date_diff = as.numeric(mature_date$date_diff)
+price = selected_bond[15:24]
+coupon_num = c(0.0275,0.0175,0.015,0.0225,0.015,0.0125,0.005,0.0025,0.01,0.0125)
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 1st bond
+library(jrvFinance)
+selected_dates = c("2022-01-10","2022-01-11","2022-01-12","2022-01-13","2022-01-14","2022-01-17","2022-01-18","2022-01-19","2022-01-20","2022-01-21")
+mature=c("2022-06-01","2023-03-01","2026-06-01","2024-03-01","2024-09-01","2025-03-01","2025-09-01","2026-03-01","2026-09-01","2027-03-01")
+jan10 = rep(0,10)
+jan11= rep(0,10)
+jan12 = rep(0,10)
+jan13 = rep(0,10)
+jan14 = rep(0,10)
+jan17 = rep(0,10)
+jan18 = rep(0,10)
+jan19 = rep(0,10)
+jan20 = rep(0,10)
+jan21 = rep(0,10)
+ytm = data.frame(jan10,jan11,jan12,jan13,jan14,jan17,jan18,jan19,jan20,jan21)
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 1st bond
+
+for (i in c(1:10)) {
+
+  raw_ytm = function(x){price[i][1,]-(1+coupon_num[1]/2)*100/(1+x) }
+  ytm[i][1,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 2nd bond
+
+for (i in c(1:10)) {
+
+raw_ytm = function(x){price[i][2,]-coupon_num[2]/2*100/(1+x)-(1+coupon_num[2]/2)*100/(1+x)^2 }
+  ytm[i][2,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 3rd bond
+
+for (i in c(1:10)) {
+
+  raw_ytm = function(x){price[i][3,]-coupon_num[3]/2*100/(1+x)-coupon_num[3]/2*100/(1+x)^2-(1+coupon_num[3]/2)*100/(1+x)^3 }
+  ytm[i][3,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 4th bond
+
+for (i in c(1:10)) {
+
+    raw_ytm = function(x){price[i][4,]-coupon_num[4]/2*100/(1+x)-coupon_num[4]/2*100/(1+x)^2-coupon_num[4]/2*100/(1+x)^3-(1+coupon_num[4]/2)*100/(1+x)^4 }
+  ytm[i][4,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 5th bond
+
+for (i in c(1:10)) {
+
+    raw_ytm = function(x){price[i][5,]-coupon_num[5]/2*100/(1+x)-coupon_num[5]/2*100/(1+x)^2-coupon_num[5]/2*100/(1+x)^3-coupon_num[5]/2*100/(1+x)^4-(1+coupon_num[5]/2)*100/(1+x)^5 }
+  ytm[i][5,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 6th bond
+
+for (i in c(1:10)) {
+
+  raw_ytm = function(x){price[i][6,]-coupon_num[6]/2*100/(1+x)-coupon_num[6]/2*100/(1+x)^2-coupon_num[6]/2*100/(1+x)^3-coupon_num[6]/2*100/(1+x)^4-coupon_num[6]/2*100/(1+x)^5-(1+coupon_num[6]/2)*100/(1+x)^6 }
+  ytm[i][6,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 7th bond
+
+for (i in c(1:10)) {
+
+  raw_ytm = function(x){price[i][7,]-coupon_num[7]/2*100/(1+x)-coupon_num[7]/2*100/(1+x)^2-coupon_num[7]/2*100/(1+x)^3-coupon_num[7]/2*100/(1+x)^4-coupon_num[7]/2*100/(1+x)^5-coupon_num[7]/2*100/(1+x)^6-(1+coupon_num[7]/2)*100/(1+x)^7 }
+  ytm[i][7,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 8th bond
+
+for (i in c(1:10)) {
+
+  raw_ytm = function(x){price[i][8,]-coupon_num[8]/2*100/(1+x)-coupon_num[8]/2*100/(1+x)^2-coupon_num[8]/2*100/(1+x)^3-coupon_num[8]/2*100/(1+x)^4-coupon_num[8]/2*100/(1+x)^5-coupon_num[8]/2*100/(1+x)^6-coupon_num[8]/2*100/(1+x)^7-(1+coupon_num[8]/2)*100/(1+x)^8 }
+  ytm[i][8,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 9th bond
+for (i in c(1:10)) {
+
+  raw_ytm = function(x){price[i][9,]-coupon_num[9]/2*100/(1+x)-coupon_num[9]/2*100/(1+x)^2-coupon_num[9]/2*100/(1+x)^3-coupon_num[9]/2*100/(1+x)^4-coupon_num[9]/2*100/(1+x)^5-coupon_num[9]/2*100/(1+x)^6-coupon_num[9]/2*100/(1+x)^7-coupon_num[9]/2*100/(1+x)^8-(1+coupon_num[9]/2)*100/(1+x)^9 }
+  ytm[i][9,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# calculate ytm for 10th bond
+for (i in c(1:10)) {
+  
+  raw_ytm = function(x){price[i][10,]-coupon_num[10]/2*100/(1+x)-coupon_num[10]/2*100/(1+x)^2-coupon_num[10]/2*100/(1+x)^3-coupon_num[10]/2*100/(1+x)^4-coupon_num[10]/2*100/(1+x)^5-coupon_num[10]/2*100/(1+x)^6-coupon_num[10]/2*100/(1+x)^7-coupon_num[10]/2*100/(1+x)^8-coupon_num[10]/2*100/(1+x)^9-(1+coupon_num[10]/2)*100/(1+x)^10 }
+  ytm[i][10,] = uniroot(raw_ytm,c(1,0))$root
+}
+```
+
+
+```{r, echo = FALSE}
+library(ggplot2)
+mature_date = data.frame(mature=c("2022-06-01","2023-03-01","2023-06-01","2024-03-01","2024-09-01","2025-03-01","2025-09-01","2026-03-01","2026-09-01","2027-03-01"),selected_dates)
+mature_date$date_diff <- as.Date(as.character(mature_date$mature), format="%Y-%m-%d")-
+                  as.Date(as.character(mature_date$selected_dates), format="%Y-%m-%d")
+colors = c("black", "steelblue", "red",  "green","yellow", "purple","orange","pink", "brown",  "cyan")
+plot(type = "l",y = ytm$jan10, x=mature_date$date_diff/365, col = "black", ylab = "YTM", xlab = "year",main = "5 year YTM from Jan10 to Jan21")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =ytm$jan11, col = "steelblue")
+lines(type = "l",x=(mature_date$date_diff-2)/365, y =ytm$jan12, col = "red")
+lines(type = "l",x=(mature_date$date_diff-3)/365, y =ytm$jan13, col = "green")
+lines(type = "l",x=(mature_date$date_diff-4)/365, y =ytm$jan14, col = "yellow")
+lines(type = "l",x=(mature_date$date_diff-7)/365, y =ytm$jan17, col = "purple")
+lines(type = "l",x=(mature_date$date_diff-8)/365, y =ytm$jan18, col = "orange")
+lines(type = "l",x=(mature_date$date_diff-9)/365, y =ytm$jan19, col = "pink")
+lines(type = "l",x=(mature_date$date_diff-10)/365, y =ytm$jan20, col = "brown")
+lines(type = "l",x=(mature_date$date_diff-11)/365, y =ytm$jan21, col = "cyan")
+legend("bottomright",legend = c("Jan10","Jan11","Jan12","Jan13","Jan14","Jan17","Jan18","Jan19","Jan20","Jan21"), col=colors, lty = 1)
+
+```
+```{r, echo = FALSE}
+# change the data type of simplify code
+mature_date$date_diff = as.numeric(mature_date$date_diff)
+price = selected_bond[15:24]
+coupon_num = c(0.0275,0.0175,0.015,0.0225,0.015,0.0125,0.005,0.0025,0.01,0.0125)
+```
+
+```{r, echo = FALSE}
+# data frame for spot rate
+jan10 = rep(0,10)
+jan11= rep(0,10)
+jan12 = rep(0,10)
+jan13 = rep(0,10)
+jan14 = rep(0,10)
+jan17 = rep(0,10)
+jan18 = rep(0,10)
+jan19 = rep(0,10)
+jan20 = rep(0,10)
+jan21 = rep(0,10)
+spot = data.frame(jan10,jan11,jan12,jan13,jan14,jan17,jan18,jan19,jan20,jan21)
+```
+
+```{r, echo = FALSE}
+#first rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][1,]-(1+coupon_num[1]/2)*100 *exp(-x*(mature_date$date_diff[1]/365))}
+  spot[i][1,] = uniroot(raw_rate,c(1,0))$root
+  
+  # spot[i][1,] = -log(price[i][1,]/((1+coupon_num[1])*100))/(mature_date$date_diff[1]/365)
+}
+```
+
+```{r, echo = FALSE}
+#second rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][2,]-coupon_num[2]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365)) - (1+coupon_num[2]/2)*100 *exp(-x*(mature_date$date_diff[2]/365))}
+  spot[i][2,] = uniroot(raw_rate,c(1,0))$root
+}
+
+# interpolation
+
+
+# for (i in c(1:10)) {
+#   spot[i][2,] = spot[i][2,]*(184/365)/(as.numeric(mature_date$date_diff[2])/365-(as.numeric(mature_date$date_diff[1])+184)/365) -spot[i][1,]*((as.numeric(mature_date$date_diff[1])+184)/365-as.numeric(mature_date$date_diff[2])/365)/(as.numeric(mature_date$date_diff[2])/365-as.numeric(mature_date$date_diff[1])/365)
+# }
+```
+
+```{r, echo = FALSE}
+#third rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][3,]-coupon_num[3]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365))-coupon_num[3]/2*100*exp(-spot[2][i,]*((mature_date$date_diff[2])/365))  -(1+coupon_num[3]/2)*100 *exp(-x*(mature_date$date_diff[3]/365))}
+  spot[i][3,] = uniroot(raw_rate,c(1,0))$root
+}
+
+
+```
+
+```{r, echo = FALSE}
+# 4th rate, interpolate needed
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][4,]-coupon_num[4]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365))-coupon_num[4]/2*100*exp(-spot[2][i,]*((mature_date$date_diff[2])/365))-coupon_num[4]/2*100*exp(-spot[3][i,]*((mature_date$date_diff[3])/365))  -(1+coupon_num[4]/2)*100 *exp(-x*(mature_date$date_diff[4]/365))}
+  spot[i][4,] = uniroot(raw_rate,c(1,0))$root
+}
+
+# interpolation
+
+
+```
+
+```{r, echo = FALSE}
+# 5th rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][5,]-coupon_num[5]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365))-coupon_num[5]/2*100*exp(-spot[2][i,]*((mature_date$date_diff[2])/365))-coupon_num[5]/2*100*exp(-spot[3][i,]*((mature_date$date_diff[3])/365))-coupon_num[5]/2*100*exp(-spot[4][i,]*((mature_date$date_diff[4])/365))  -(1+coupon_num[5]/2)*100 *exp(-x*(mature_date$date_diff[5]/365))}
+  spot[i][5,] = uniroot(raw_rate,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# 6th rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][6,]-coupon_num[6]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365))-coupon_num[6]/2*100*exp(-spot[2][i,]*((mature_date$date_diff[2])/365))-coupon_num[6]/2*100*exp(-spot[3][i,]*((mature_date$date_diff[3])/365))-coupon_num[6]/2*100*exp(-spot[4][i,]*((mature_date$date_diff[4])/365)) -coupon_num[6]/2*100*exp(-spot[5][i,]*((mature_date$date_diff[5])/365)) -(1+coupon_num[6]/2)*100 *exp(-x*(mature_date$date_diff[6]/365))}
+  spot[i][6,] = uniroot(raw_rate,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# 7th rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][7,]-coupon_num[7]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365))-coupon_num[7]/2*100*exp(-spot[2][i,]*((mature_date$date_diff[2])/365))-coupon_num[7]/2*100*exp(-spot[3][i,]*((mature_date$date_diff[3])/365))-coupon_num[7]/2*100*exp(-spot[4][i,]*((mature_date$date_diff[4])/365))  -coupon_num[7]/2*100*exp(-spot[5][i,]*((mature_date$date_diff[5])/365)) -coupon_num[7]/2*100*exp(-spot[6][i,]*((mature_date$date_diff[6])/365))-(1+coupon_num[7]/2)*100 *exp(-x*(mature_date$date_diff[7]/365))}
+  spot[i][7,] = uniroot(raw_rate,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# 8th rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][8,]-coupon_num[8]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365))-coupon_num[8]/2*100*exp(-spot[2][i,]*((mature_date$date_diff[2])/365))-coupon_num[8]/2*100*exp(-spot[3][i,]*((mature_date$date_diff[3])/365))-coupon_num[8]/2*100*exp(-spot[4][i,]*((mature_date$date_diff[4])/365))  -coupon_num[8]/2*100*exp(-spot[5][i,]*((mature_date$date_diff[5])/365)) -coupon_num[8]/2*100*exp(-spot[6][i,]*((mature_date$date_diff[6])/365))-coupon_num[8]/2*100*exp(-spot[7][i,]*((mature_date$date_diff[7])/365))-(1+coupon_num[8]/2)*100 *exp(-x*(mature_date$date_diff[8]/365))}
+  spot[i][8,] = uniroot(raw_rate,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# 9th rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][9,]-coupon_num[9]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365))-coupon_num[9]/2*100*exp(-spot[2][i,]*((mature_date$date_diff[2])/365))-coupon_num[9]/2*100*exp(-spot[3][i,]*((mature_date$date_diff[3])/365))-coupon_num[9]/2*100*exp(-spot[4][i,]*((mature_date$date_diff[4])/365))  -coupon_num[9]/2*100*exp(-spot[5][i,]*((mature_date$date_diff[5])/365)) -coupon_num[9]/2*100*exp(-spot[6][i,]*((mature_date$date_diff[6])/365))-coupon_num[9]/2*100*exp(-spot[7][i,]*((mature_date$date_diff[7])/365))-coupon_num[9]/2*100*exp(-spot[8][i,]*((mature_date$date_diff[8])/365))-(1+coupon_num[9]/2)*100 *exp(-x*(mature_date$date_diff[9]/365))}
+  spot[i][9,] = uniroot(raw_rate,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+# 10th rate
+for (i in c(1:10)) {
+  raw_rate = function(x){price[i][10,]-coupon_num[10]/2*100*exp(-spot[1][i,]*(mature_date$date_diff[1]/365))-coupon_num[10]/2*100*exp(-spot[2][i,]*((mature_date$date_diff[2])/365))-coupon_num[10]/2*100*exp(-spot[3][i,]*((mature_date$date_diff[3])/365))-coupon_num[10]/2*100*exp(-spot[4][i,]*((mature_date$date_diff[4])/365))  -coupon_num[10]/2*100*exp(-spot[5][i,]*((mature_date$date_diff[5])/365)) -coupon_num[10]/2*100*exp(-spot[6][i,]*((mature_date$date_diff[6])/365))-coupon_num[10]/2*100*exp(-spot[7][i,]*((mature_date$date_diff[7])/365))-coupon_num[10]/2*100*exp(-spot[8][i,]*((mature_date$date_diff[8])/365))-coupon_num[10]/2*100*exp(-spot[9][i,]*((mature_date$date_diff[9])/365))-(1+coupon_num[10]/2)*100 *exp(-x*(mature_date$date_diff[10]/365))}
+  spot[i][10,] = uniroot(raw_rate,c(1,0))$root
+}
+```
+
+```{r, echo = FALSE}
+#interpolation
+for (i in c(1:10)){
+  spot[i][1,] = spot[i][1,] + (spot[i][2,] - spot[i][1,])/(mature_date$date_diff[2]/365-mature_date$date_diff[1]/365)*((mature_date$date_diff[1]+90)/365-mature_date$date_diff[1]/365)
+}
+
+for (i in c(1:10)){
+  spot[i][3,] = spot[i][3,] + (spot[i][4,] - spot[i][3,])/(mature_date$date_diff[4]/365-mature_date$date_diff[3]/365)*((mature_date$date_diff[3]+90)/365-mature_date$date_diff[3]/365)
+}
+```
+
+```{r, echo = FALSE}
+plot(type = "l",y = spot$jan10, x=mature_date$date_diff/365, col = "black", ylab = "Spot", xlab = "year",main = "5 year spot curve from Jan10 to Jan21")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan11, col = "steelblue")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan12, col = "red")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan13, col = "green")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan14, col = "yellow")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan17, col = "purple")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan18, col = "orange")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan19, col = "pink")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan20, col = "brown")
+lines(type = "l",x=(mature_date$date_diff-1)/365, y =spot$jan21, col = "cyan")
+legend("bottomright",legend = c("Jan10","Jan11","Jan12","Jan13","Jan14","Jan17","Jan18","Jan19","Jan20","Jan21"), col=colors, lty = 1, cex = 0.6)
+```
+
+```{r, echo = FALSE}
+#dataframe for forward rate
+jan10 = rep(0,4)
+jan11 = rep(0,4)
+jan12 = rep(0,4)
+jan13 = rep(0,4)
+jan14 = rep(0,4)
+jan17 = rep(0,4)
+jan18 = rep(0,4)
+jan19 = rep(0,4)
+jan20 = rep(0,4)
+jan21 = rep(0,4)
+forward = data.frame(jan10,jan11,jan12,jan13,jan14,jan17,jan18,jan19,jan20,jan21)
+```
+
+```{r, echo = FALSE}
+for (j in c(1:10)) {
+  forward[j][1,] = (1+spot[j][4,])^2/(1+spot[j][2,])-1
+}
+for (j in c(1:10)) {
+  forward[j][2,] = (1+spot[j][6,])^3/(1+spot[j][2,])-1
+}
+for (j in c(1:10)) {
+  forward[j][3,] = (1+spot[j][8,])^4/(1+spot[j][2,])-1
+}
+for (j in c(1:10)) {
+  forward[j][4,] = (1+spot[j][10,])^5/(1+spot[j][2,])-1
+}
+
+```
+
+```{r, echo = FALSE}
+plot(type = "l",y = forward$jan10, x=c(1,2,3,4), col = "black", ylab = "forward rate", xlab = "year",main = "forward curve from Jan10 to Jan21")
+lines(type = "l",x=c(1,2,3,4), y = forward$jan11, col = "steelblue")
+lines(type = "l",x=c(1,2,3,4), y =forward$jan12, col = "red")
+lines(type = "l",x=c(1,2,3,4), y =forward$jan13, col = "green")
+lines(type = "l",x=c(1,2,3,4), y =forward$jan14, col = "yellow")
+lines(type = "l",x=c(1,2,3,4), y =forward$jan17, col = "purple")
+lines(type = "l",x=c(1,2,3,4), y =forward$jan18, col = "orange")
+lines(type = "l",x=c(1,2,3,4), y =forward$jan19, col = "pink")
+lines(type = "l",x=c(1,2,3,4), y =forward$jan20, col = "brown")
+lines(type = "l",x=c(1,2,3,4), y =forward$jan21, col = "cyan")
+legend("topleft",legend = c("Jan10","Jan11","Jan12","Jan13","Jan14","Jan17","Jan18","Jan19","Jan20","Jan21"), col=colors, lty = 1)
+```
+
+```{r, echo = FALSE}
+# finding ytm covariance matrix
+X_1 = rep(0,9)
+X_2 = rep(0,9)
+X_3 = rep(0,9)
+X_4 = rep(0,9)
+X_5 = rep(0,9)
+ytm_matrix = data.frame(X_1,X_2,X_3,X_4,X_5)
+for (i in 1:9){
+  X_1[i] <- log(ytm[1+i][2,]/ytm[1][2,])
+  X_2[i] <- log(ytm[1+i][4,]/ytm[1][4,])
+  X_3[i] <- log(ytm[1+i][6,]/ytm[1][6,])
+  X_4[i] <- log(ytm[1+i][8,]/ytm[1][8,])
+  X_5[i] <- log(ytm[1+i][10,]/ytm[1][10,])
+}
+ytm_matrix <- t(matrix(c(X_1,X_2,X_3,X_4,X_5), ncol = 5))
+ytm_matrix <- cov(t(ytm_matrix))
+ytm_matrix
+```
+
+```{r, echo = FALSE}
+# finding ytm covariance matrix
+Y_1 = rep(0,4)
+Y_2 = rep(0,4)
+Y_3 = rep(0,4)
+Y_4 = rep(0,4)
+for (i in 1:9){
+  Y_1[i] <- log(forward[1+i][1,]/forward[1][1,])
+  Y_2[i] <- log(forward[1+i][2,]/forward[1][2,])
+  Y_3[i] <- log(forward[1+i][3,]/forward[1][3,])
+  Y_4[i] <- log(forward[1+i][4,]/forward[1][4,])
+}
+for_matrix <- t(matrix(c(Y_1,Y_2,Y_3,Y_4), ncol = 4))
+for_matrix <- cov(t(for_matrix))
+for_matrix
+```
+
+```{r, echo = FALSE}
+# eigen
+eigen(ytm_matrix)
+eigen(for_matrix)
+```
